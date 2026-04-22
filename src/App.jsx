@@ -8,42 +8,29 @@ export default function App() {
       padding: "0px"
     }}>
 
-      {/* TOP MENU BAR (NEW - NON-BREAKING) */}
+      {/* TOP MENU BAR */}
       <div style={{
-        width: "100%",
-        background: "#070b18",
-        padding: "18px 25px",
+        background: "#030712",
+        padding: "20px 40px",
+        borderBottom: "1px solid #1e293b",
         display: "flex",
         alignItems: "center",
-        justifyContent: "space-between",
-        borderBottom: "1px solid #1e293b",
-        position: "sticky",
-        top: 0,
-        zIndex: 1000
+        justifyContent: "space-between"
       }}>
 
-        {/* MENU ICON */}
+        {/* MENU BUTTON */}
         <div style={{
-          fontSize: "28px",
+          fontSize: "32px",
           cursor: "pointer"
         }}>
           ☰
         </div>
 
-        {/* BRAND */}
         <div style={{
-          fontWeight: "bold",
-          fontSize: "18px"
+          fontSize: "20px",
+          fontWeight: "bold"
         }}>
           Elevate Academic
-        </div>
-
-        {/* PLACEHOLDER NAV (SAFE - NO STRUCTURE CHANGE) */}
-        <div style={{
-          fontSize: "14px",
-          opacity: 0.7
-        }}>
-          Services • Order • Pricing • Chat
         </div>
 
       </div>
@@ -81,12 +68,11 @@ export default function App() {
             maxWidth: "900px"
           }}>
             Professional academic editing, proofreading, and writing support for essays,
-            dissertations, and research papers. Improve clarity, structure,
-            grammar, and academic quality with expert-level assistance.
+            dissertations, and research papers.
           </p>
 
           <a
-            href="https://wa.me/254726434657?text=Hi%20I%20need%20academic%20editing%20help"
+            href="https://wa.me/254726434657"
             target="_blank"
             rel="noreferrer"
             style={{
@@ -105,8 +91,7 @@ export default function App() {
 
         </div>
 
-        {/* EVERYTHING BELOW REMAINS EXACTLY SAME (UNCHANGED) */}
-        {/* SERVICES */}
+        {/* ORDER FORM */}
         <div style={{
           background: "#172033",
           padding: "40px",
@@ -116,17 +101,75 @@ export default function App() {
           marginLeft: "auto",
           marginRight: "auto"
         }}>
-          <h2 style={{ fontSize: "32px" }}>Academic Services</h2>
-          <ul style={{ lineHeight: "2", marginTop: "20px", fontSize: "18px" }}>
-            <li>Academic editing services UK & US</li>
-            <li>Essay proofreading & improvement</li>
-            <li>Dissertation & thesis support</li>
-            <li>Academic writing assistance</li>
-            <li>APA / MLA / Harvard formatting</li>
-          </ul>
+
+          <h2 style={{
+            fontSize: "32px",
+            marginBottom: "25px"
+          }}>
+            Place Your Order
+          </h2>
+
+          <input
+            type="text"
+            placeholder="Title of your paper/work"
+            style={{
+              width: "100%",
+              padding: "16px",
+              marginBottom: "20px",
+              borderRadius: "10px",
+              border: "1px solid #334155",
+              background: "#0f172a",
+              color: "white",
+              fontSize: "16px"
+            }}
+          />
+
+          <input
+            type="number"
+            placeholder="Number of pages"
+            style={{
+              width: "100%",
+              padding: "16px",
+              marginBottom: "20px",
+              borderRadius: "10px",
+              border: "1px solid #334155",
+              background: "#0f172a",
+              color: "white",
+              fontSize: "16px"
+            }}
+          />
+
+          <textarea
+            placeholder="Additional instructions..."
+            rows="5"
+            style={{
+              width: "100%",
+              padding: "16px",
+              borderRadius: "10px",
+              border: "1px solid #334155",
+              background: "#0f172a",
+              color: "white",
+              fontSize: "16px"
+            }}
+          ></textarea>
+
+          <button style={{
+            marginTop: "20px",
+            padding: "16px 24px",
+            background: "#2563eb",
+            color: "white",
+            border: "none",
+            borderRadius: "10px",
+            fontWeight: "bold",
+            cursor: "pointer",
+            fontSize: "16px"
+          }}>
+            Submit Order Request
+          </button>
+
         </div>
 
-        {/* WHY CHOOSE */}
+        {/* BASIC PRICE LIST */}
         <div style={{
           background: "#111827",
           padding: "40px",
@@ -136,35 +179,74 @@ export default function App() {
           marginLeft: "auto",
           marginRight: "auto"
         }}>
-          <h2 style={{ fontSize: "32px" }}>Why Choose Us</h2>
-          <ul style={{ lineHeight: "2", marginTop: "20px", fontSize: "18px" }}>
-            <li>✔ 5+ years academic experience</li>
-            <li>✔ UK & US academic standards</li>
-            <li>✔ 100% confidentiality guaranteed</li>
-            <li>✔ Fast 24–48 hour delivery</li>
-            <li>✔ Over 5,000+ papers handled</li>
-          </ul>
+
+          <h2 style={{
+            fontSize: "32px"
+          }}>
+            Basic Price List
+          </h2>
+
+          <div style={{
+            marginTop: "25px",
+            lineHeight: "2",
+            fontSize: "18px"
+          }}>
+            <p>✔ Basic Editing — $10–$12 per page</p>
+            <p>✔ Advanced Editing — $15–$20 per page</p>
+            <p>✔ Dissertation Support — Custom Pricing</p>
+            <p>✔ Urgent 24h Delivery — Extra Charges Apply</p>
+          </div>
+
         </div>
 
-        {/* PRICING */}
+        {/* LIVE CHAT BOX */}
         <div style={{
-          background: "#1e293b",
+          background: "#172033",
           padding: "40px",
           borderRadius: "18px",
           marginTop: "40px",
-          border: "1px solid #334155",
           maxWidth: "1400px",
           marginLeft: "auto",
           marginRight: "auto"
         }}>
-          <h2 style={{ fontSize: "32px" }}>Pricing</h2>
-          <p><b>$10–$12 per page</b></p>
-          <p><b>$15–$20 per page</b></p>
+
+          <h2 style={{
+            fontSize: "32px",
+            marginBottom: "20px"
+          }}>
+            Quick Chat
+          </h2>
+
+          <div style={{
+            background: "#0f172a",
+            padding: "20px",
+            borderRadius: "12px",
+            minHeight: "150px",
+            marginBottom: "20px",
+            opacity: 0.85
+          }}>
+            Hello 👋 How can we help with your academic work today?
+          </div>
+
+          <input
+            type="text"
+            placeholder="Type your message..."
+            style={{
+              width: "100%",
+              padding: "16px",
+              borderRadius: "10px",
+              border: "1px solid #334155",
+              background: "#0f172a",
+              color: "white",
+              fontSize: "16px"
+            }}
+          />
+
         </div>
 
       </div>
 
-      {/* HELP BUTTON (UNCHANGED) */}
+      {/* HELP BUTTON */}
       <a
         href="https://wa.me/254726434657"
         target="_blank"
@@ -175,7 +257,7 @@ export default function App() {
           right: "20px",
           background: "#22c55e",
           color: "black",
-          padding: "16px 22px",
+          padding: "16px 24px",
           borderRadius: "50px",
           fontWeight: "bold",
           textDecoration: "none",
