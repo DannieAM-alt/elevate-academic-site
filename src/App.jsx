@@ -75,6 +75,27 @@ export default function App() {
           Helping students improve grades, structure, and clarity in academic writing across universities in the UK and US.
         </p>
 
+        {/* SEO BOOST SECTION */}
+        <h2 style={{ marginTop: "35px" }}>
+          Academic Editing Services for UK & US Students
+        </h2>
+
+        <p style={{ opacity: 0.85, lineHeight: "1.6" }}>
+          We specialize in academic editing, proofreading, and writing support for students in the United Kingdom and United States.
+          Our services improve grammar, structure, clarity, and academic performance.
+        </p>
+
+        {/* BLOG SEO SECTION */}
+        <h2 style={{ marginTop: "35px" }}>
+          Helpful Academic Tips
+        </h2>
+
+        <ul style={{ lineHeight: "1.8" }}>
+          <li>How to improve essay structure for higher grades</li>
+          <li>Common grammar mistakes in academic writing</li>
+          <li>How to format APA and MLA citations correctly</li>
+        </ul>
+
         {/* PRICING */}
         <h2 style={{ marginTop: "35px" }}>Pricing</h2>
 
@@ -94,6 +115,29 @@ export default function App() {
         </div>
 
       </div>
+
+      {/* FLOATING WHATSAPP BUTTON */}
+      <a
+        href="https://wa.me/254726434657"
+        target="_blank"
+        rel="noreferrer"
+        style={{
+          position: "fixed",
+          bottom: "20px",
+          right: "20px",
+          background: "#22c55e",
+          color: "black",
+          padding: "14px 16px",
+          borderRadius: "50px",
+          fontWeight: "bold",
+          textDecoration: "none",
+          boxShadow: "0 10px 20px rgba(0,0,0,0.3)",
+          zIndex: 9999
+        }}
+      >
+        WhatsApp
+      </a>
+
     </div>
   );
 }
