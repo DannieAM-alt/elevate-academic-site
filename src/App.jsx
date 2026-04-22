@@ -18,53 +18,67 @@ export default function App() {
         justifyContent: "space-between"
       }}>
 
-        {/* MENU BUTTON WRAPPER */}
+        {/* MENU BUTTON (HOME MENU) */}
 <div style={{ position: "relative", display: "inline-block" }}>
 
   {/* MENU ICON */}
-  <div style={{
-    fontSize: "32px",
-    cursor: "pointer"
-  }}>
+  <div
+    onClick={() => setMenuOpen(!menuOpen)}
+    style={{
+      fontSize: "32px",
+      cursor: "pointer",
+      userSelect: "none"
+    }}
+  >
     ☰
   </div>
 
   {/* DROPDOWN MENU */}
-  <div style={{
-    position: "absolute",
-    top: "45px",
-    left: "0px",
-    background: "#0f172a",
-    border: "1px solid #1e293b",
-    borderRadius: "12px",
-    padding: "12px",
-    width: "220px",
-    display: "flex",
-    flexDirection: "column",
-    gap: "10px",
-    zIndex: 999
-  }}>
+  {menuOpen && (
+    <div style={{
+      position: "absolute",
+      top: "45px",
+      left: "0px",
+      background: "#0f172a",
+      border: "1px solid #1e293b",
+      borderRadius: "12px",
+      padding: "12px",
+      width: "220px",
+      display: "flex",
+      flexDirection: "column",
+      gap: "10px",
+      zIndex: 999
+    }}>
 
-    <a href="#services" style={{ color: "white", textDecoration: "none" }}>
-      Services
-    </a>
+      <a href="#services" style={{ color: "white", textDecoration: "none" }}>
+        Services
+      </a>
 
-    <a href="#order" style={{ color: "white", textDecoration: "none" }}>
-      Place Order
-    </a>
+      <a href="#order" style={{ color: "white", textDecoration: "none" }}>
+        Place Order
+      </a>
 
-    <a href="#pricing" style={{ color: "white", textDecoration: "none" }}>
-      Pricing
-    </a>
+      <a href="#pricing" style={{ color: "white", textDecoration: "none" }}>
+        Pricing
+      </a>
 
-    <a href="#chat" style={{ color: "white", textDecoration: "none" }}>
-      Chat Support
-    </a>
+      <a href="#chat" style={{ color: "white", textDecoration: "none" }}>
+        Chat Support
+      </a>
 
-  </div>
+    </div>
+  )}
 
 </div>
 
+        <div style={{
+          fontSize: "20px",
+          fontWeight: "bold"
+        }}>
+          Elevate Academic
+        </div>
+
+      </div>
 
       {/* MAIN BACKGROUND */}
       <div style={{
