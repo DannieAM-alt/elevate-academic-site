@@ -3,9 +3,9 @@ export default function App() {
     <div style={{
       fontFamily: "Arial",
       background: "#0b1220",
+      color: "white",
       minHeight: "100vh",
-      padding: "40px",
-      color: "#e5e7eb"
+      padding: "40px"
     }}>
 
       <div style={{
@@ -13,125 +13,98 @@ export default function App() {
         margin: "auto",
         background: "#111827",
         padding: "40px",
-        borderRadius: "18px",
-        boxShadow: "0 20px 50px rgba(0,0,0,0.5)",
-        border: "1px solid rgba(255,255,255,0.08)"
+        borderRadius: "14px",
+        boxShadow: "0 10px 30px rgba(0,0,0,0.4)"
       }}>
 
         {/* HERO */}
-        <h1 style={{
-          fontSize: "38px",
-          color: "#ffffff",
-          marginBottom: "10px"
-        }}>
-          Elevate Academic Editing
+        <h1 style={{ fontSize: "34px", marginBottom: "10px" }}>
+          Academic Editing & Writing Support Services in UK & US
         </h1>
 
-        <p style={{
-          fontSize: "18px",
-          color: "#cbd5e1"
-        }}>
-          Professional academic editing, proofreading, and research support for students and researchers in the US & UK.
+        <p style={{ fontSize: "16px", opacity: 0.9 }}>
+          Professional academic editing, proofreading, and writing support for essays, dissertations, and research papers.
+          Improve clarity, structure, grammar, and academic quality with expert-level assistance.
         </p>
 
-        {/* CTA BUTTON */}
-        <div style={{ marginTop: "20px" }}>
-          <a
-            href="https://wa.me/254726434657"
-            target="_blank"
-            style={{
-              display: "inline-block",
-              background: "#22c55e",
-              color: "white",
-              padding: "12px 18px",
-              borderRadius: "10px",
-              textDecoration: "none",
-              fontWeight: "bold"
-            }}
-          >
-            Get Free Quote on WhatsApp
-          </a>
+        {/* CTA */}
+        <div style={{
+          marginTop: "20px",
+          padding: "15px",
+          background: "#22c55e",
+          color: "black",
+          fontWeight: "bold",
+          textAlign: "center",
+          borderRadius: "8px"
+        }}>
+          Get Instant Help on WhatsApp
         </div>
-
-        <hr style={{
-          margin: "25px 0",
-          border: "none",
-          height: "1px",
-          background: "rgba(255,255,255,0.1)"
-        }} />
 
         {/* SERVICES */}
-        <h2 style={{ color: "#ffffff" }}>Services</h2>
-        <ul style={{ color: "#cbd5e1", lineHeight: "1.8" }}>
-          <li>Academic Editing & Proofreading</li>
-          <li>Research Paper Improvement</li>
-          <li>Thesis & Dissertation Support</li>
-          <li>APA / MLA / Harvard Formatting</li>
+        <h2 style={{ marginTop: "30px" }}>
+          Academic Services
+        </h2>
+
+        <ul>
+          <li>Academic editing services UK & US</li>
+          <li>Essay proofreading & improvement</li>
+          <li>Dissertation & thesis support</li>
+          <li>Academic writing assistance</li>
+          <li>APA / MLA / Harvard formatting</li>
         </ul>
 
-        {/* TRUST */}
-        <h2 style={{ color: "#ffffff", marginTop: "25px" }}>Why Choose Us</h2>
-        <ul style={{ color: "#cbd5e1", lineHeight: "1.8" }}>
-          <li>✔ 5+ years academic editing experience</li>
-          <li>✔ US & UK academic standards</li>
+        {/* WHY CHOOSE */}
+        <h2 style={{ marginTop: "30px" }}>
+          Why Choose Us
+        </h2>
+
+        <ul>
+          <li>✔ 5+ years academic experience</li>
+          <li>✔ UK & US academic standards</li>
           <li>✔ 100% confidentiality guaranteed</li>
           <li>✔ Fast 24–48 hour delivery</li>
+          <li>✔ Over 5,000+ papers handled</li>
         </ul>
 
+        {/* SOCIAL PROOF */}
+        <h2 style={{ marginTop: "30px" }}>
+          Trusted by Students & Researchers
+        </h2>
+
+        <p style={{ opacity: 0.85 }}>
+          Helping students improve grades, structure, and clarity in academic writing across universities in the UK and US.
+        </p>
+
         {/* PRICING */}
-        <div style={{
-          marginTop: "25px",
-          padding: "18px",
-          background: "#1f2937",
-          borderRadius: "12px",
-          border: "1px solid rgba(255,255,255,0.08)"
-        }}>
-          <h2 style={{ color: "#ffffff" }}>Pricing</h2>
-          <p><b>$10–$12 per page</b> — Basic Editing</p>
-          <p><b>$15–$20 per page</b> — Advanced Editing</p>
-        </div>
+        <h2 style={{ marginTop: "30px" }}>
+          Pricing
+        </h2>
+
+        <p><b>$10–$12 per page</b> — Basic Editing</p>
+        <p><b>$15–$20 per page</b> — Advanced Editing</p>
 
         {/* CONTACT */}
-        <h2 style={{ marginTop: "25px", color: "#ffffff" }}>Contact</h2>
-        <p style={{ color: "#cbd5e1" }}>
+        <h2 style={{ marginTop: "30px" }}>
+          Contact
+        </h2>
+
+        <p>
           <b>WhatsApp:</b> +254726434657
         </p>
 
-        {/* FOOTER TRUST BAR */}
+        {/* FINAL CTA */}
         <div style={{
-          marginTop: "30px",
-          padding: "15px",
-          background: "linear-gradient(90deg, #16a34a, #22c55e)",
-          color: "white",
-          borderRadius: "12px",
+          marginTop: "25px",
+          padding: "18px",
+          background: "#2563eb",
           textAlign: "center",
+          borderRadius: "10px",
           fontWeight: "bold"
         }}>
-          Fast delivery • Confidential • Professional service
+          Message Now for Fast Academic Help
         </div>
 
       </div>
-
-      {/* FLOATING WHATSAPP BUTTON */}
-      <a
-        href="https://wa.me/254726434657"
-        target="_blank"
-        style={{
-          position: "fixed",
-          bottom: "20px",
-          right: "20px",
-          background: "#22c55e",
-          color: "white",
-          padding: "15px",
-          borderRadius: "50px",
-          textDecoration: "none",
-          fontWeight: "bold",
-          boxShadow: "0 10px 25px rgba(0,0,0,0.3)"
-        }}
-      >
-        WhatsApp
-      </a>
-
     </div>
   );
 }
