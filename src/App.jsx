@@ -14,31 +14,25 @@ export default function App() {
       fontFamily: "Arial",
       background: "#020617",
       color: "white",
-      minHeight: "100vh",
-      padding: "0px"
+      minHeight: "100vh"
     }}>
 
-      {/* TOP MENU BAR */}
+      {/* TOP BAR */}
       <div style={{
         background: "#030712",
         padding: "20px 40px",
         borderBottom: "1px solid #1e293b",
         display: "flex",
-        alignItems: "center",
         justifyContent: "space-between",
         position: "relative"
       }}>
 
-        {/* MENU BUTTON */}
+        {/* MENU */}
         <div style={{ position: "relative" }}>
 
           <div
             onClick={() => setMenuOpen(!menuOpen)}
-            style={{
-              fontSize: "32px",
-              cursor: "pointer",
-              userSelect: "none"
-            }}
+            style={{ fontSize: "32px", cursor: "pointer" }}
           >
             ☰
           </div>
@@ -47,7 +41,7 @@ export default function App() {
             <div style={{
               position: "absolute",
               top: "45px",
-              left: "0px",
+              left: "0",
               background: "#0f172a",
               border: "1px solid #1e293b",
               borderRadius: "12px",
@@ -70,122 +64,108 @@ export default function App() {
 
         </div>
 
-        <div style={{ fontSize: "20px", fontWeight: "bold" }}>
+        <div style={{ fontWeight: "bold", fontSize: "20px" }}>
           Elevate Academic
         </div>
-
       </div>
 
       {/* MAIN AREA */}
       <div style={{
-        width: "100%",
         background: "#081120",
-        padding: "60px 40px",
-        boxSizing: "border-box"
+        padding: "60px 40px"
       }}>
 
         {/* ================= HOME ================= */}
         {activePage === "home" && (
-          <div style={card}>
-            <h1 style={{ fontSize: "48px" }}>
-              Academic Editing & Writing Support Services
-            </h1>
+          <>
+            {/* HERO */}
+            <div style={card}>
+              <h1 style={{ fontSize: "48px" }}>
+                Academic Editing & Writing Support Services
+              </h1>
 
-            <p style={{ fontSize: "20px", opacity: 0.9 }}>
-              Professional academic editing, proofreading, writing support for essays,
-              dissertations, and research papers.
-            </p>
+              <p style={{ fontSize: "20px", opacity: 0.9 }}>
+                Professional academic editing, proofreading, writing support for essays,
+                dissertations, and research papers.
+              </p>
 
-            <a
-              href="https://wa.me/254726434657"
-              target="_blank"
-              rel="noreferrer"
-              style={cta}
-            >
-              Get Instant Help on WhatsApp
-            </a>
-          </div>
+              <a href="https://wa.me/254726434657" style={cta}>
+                Get Instant Help on WhatsApp
+              </a>
+            </div>
+
+            {/* PLACE ORDER (NOW BACK IN HOME) */}
+            <div style={card}>
+              <h2>Place Your Order</h2>
+
+              <input placeholder="Title of work" style={input} />
+              <input placeholder="Number of pages" style={input} />
+              <textarea placeholder="Instructions..." rows="5" style={input} />
+
+              <button style={button}>Submit Order</button>
+            </div>
+          </>
         )}
 
         {/* ================= SERVICES ================= */}
         {activePage === "services" && (
-          <div style={card}>
-            <h2>Academic Services</h2>
+          <>
+            <div style={card}>
+              <h2>Academic Services</h2>
 
-            <p>✔ Academic editing UK & US</p>
-            <p>✔ Essay proofreading</p>
-            <p>✔ Dissertation support</p>
-            <p>✔ Academic writing help</p>
-            <p>✔ APA / MLA formatting</p>
-          </div>
-        )}
-
-        {/* ================= ORDER ================= */}
-        {activePage === "order" && (
-          <div style={card}>
-            <h2>Place Your Order</h2>
-
-            <input placeholder="Title of work" style={input} />
-            <input placeholder="Number of pages" style={input} />
-            <textarea placeholder="Instructions..." rows="5" style={input} />
-
-            <button style={button}>
-              Submit Order
-            </button>
-          </div>
-        )}
-
-        {/* ================= PRICING ================= */}
-        {activePage === "pricing" && (
-          <div style={card}>
-            <h2>Pricing</h2>
-
-            <p>Basic Editing — $10–$12/page</p>
-            <p>Advanced Editing — $15–$20/page</p>
-            <p>Dissertation — Custom pricing</p>
-            <p>24h delivery — extra fee</p>
-          </div>
-        )}
-
-        {/* ================= CHAT ================= */}
-        {activePage === "chat" && (
-          <div style={card}>
-            <h2>Quick Chat</h2>
-
-            <div style={{
-              background: "#0f172a",
-              padding: "20px",
-              borderRadius: "10px",
-              minHeight: "120px",
-              marginBottom: "10px"
-            }}>
-              Hello 👋 How can we help?
+              <ul style={{ lineHeight: "2", fontSize: "18px" }}>
+                <li>Academic editing services UK & US</li>
+                <li>Essay proofreading & improvement</li>
+                <li>Dissertation & thesis support</li>
+                <li>Academic writing assistance</li>
+                <li>APA / MLA / Harvard formatting</li>
+              </ul>
             </div>
 
-            <input placeholder="Type message..." style={input} />
-          </div>
+            <div style={card}>
+              <h2>Why Choose Us</h2>
+
+              <ul style={{ lineHeight: "2", fontSize: "18px" }}>
+                <li>✔ 5+ years academic experience</li>
+                <li>✔ UK & US academic standards</li>
+                <li>✔ 100% confidentiality</li>
+                <li>✔ 24–48 hour delivery</li>
+                <li>✔ 5,000+ papers handled</li>
+              </ul>
+            </div>
+
+            <div style={card}>
+              <h2>Trusted by Students & Researchers</h2>
+
+              <p style={{ opacity: 0.85, lineHeight: "1.8" }}>
+                Helping students improve grades, structure, and clarity across UK & US universities.
+              </p>
+            </div>
+
+            <div style={card}>
+              <h2>Academic SEO Support</h2>
+
+              <p style={{ opacity: 0.85, lineHeight: "1.8" }}>
+                We specialize in academic editing, proofreading, and writing improvement services.
+              </p>
+            </div>
+
+            <div style={card}>
+              <h2>Helpful Academic Tips</h2>
+
+              <ul style={{ lineHeight: "2", fontSize: "18px" }}>
+                <li>Essay structure improvement</li>
+                <li>Grammar mistake correction</li>
+                <li>APA & MLA formatting guide</li>
+              </ul>
+            </div>
+          </>
         )}
 
       </div>
 
       {/* HELP BUTTON */}
-      <a
-        href="https://wa.me/254726434657"
-        target="_blank"
-        rel="noreferrer"
-        style={{
-          position: "fixed",
-          bottom: "20px",
-          right: "20px",
-          background: "#22c55e",
-          color: "black",
-          padding: "16px 24px",
-          borderRadius: "50px",
-          fontWeight: "bold",
-          textDecoration: "none",
-          zIndex: 9999
-        }}
-      >
+      <a href="https://wa.me/254726434657" style={helpBtn}>
         Help
       </a>
 
@@ -199,7 +179,7 @@ const card = {
   padding: "40px",
   borderRadius: "18px",
   maxWidth: "1400px",
-  margin: "0 auto"
+  margin: "0 auto 40px auto"
 };
 
 const input = {
@@ -209,8 +189,7 @@ const input = {
   borderRadius: "10px",
   border: "1px solid #334155",
   background: "#0f172a",
-  color: "white",
-  fontSize: "16px"
+  color: "white"
 };
 
 const button = {
@@ -220,8 +199,7 @@ const button = {
   color: "white",
   border: "none",
   borderRadius: "10px",
-  fontWeight: "bold",
-  cursor: "pointer"
+  fontWeight: "bold"
 };
 
 const cta = {
@@ -235,8 +213,19 @@ const cta = {
   textDecoration: "none"
 };
 
-const menuItem = {
-  color: "white",
-  cursor: "pointer",
+const helpBtn = {
+  position: "fixed",
+  bottom: "20px",
+  right: "20px",
+  background: "#22c55e",
+  color: "black",
+  padding: "16px 24px",
+  borderRadius: "50px",
+  fontWeight: "bold",
   textDecoration: "none"
+};
+
+const menuItem = {
+  cursor: "pointer",
+  color: "white"
 };
