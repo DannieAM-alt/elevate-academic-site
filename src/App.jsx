@@ -4,9 +4,36 @@ export default function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activePage, setActivePage] = useState("home");
 
+  // ORDER FORM STATE
+  const [order, setOrder] = useState({
+    title: "",
+    pages: "",
+    instructions: ""
+  });
+
+  const [chatMessage, setChatMessage] = useState("");
+
   const goTo = (page) => {
     setActivePage(page);
     setMenuOpen(false);
+  };
+
+  // ✅ SEND ORDER TO WHATSAPP
+  const sendOrder = () => {
+    const message =
+`📘 NEW ORDER REQUEST:
+Title: ${order.title}
+Pages: ${order.pages}
+Instructions: ${order.instructions}`;
+
+    const url = `https://wa.me/254726434657?text=${encodeURIComponent(message)}`;
+    window.open(url, "_blank");
+  };
+
+  // ✅ SEND CHAT TO WHATSAPP
+  const sendChat = () => {
+    const url = `https://wa.me/254726434657?text=${encodeURIComponent("💬 Chat Support: " + chatMessage)}`;
+    window.open(url, "_blank");
   };
 
   return (
@@ -69,15 +96,11 @@ export default function App() {
       </div>
 
       {/* MAIN AREA */}
-      <div style={{
-        background: "#081120",
-        padding: "60px 40px"
-      }}>
+      <div style={{ background: "#081120", padding: "60px 40px" }}>
 
         {/* ================= HOME ================= */}
         {activePage === "home" && (
           <>
-            {/* HERO */}
             <div style={card}>
               <h1 style={{ fontSize: "48px" }}>
                 Academic Editing & Writing Support Services
@@ -85,7 +108,7 @@ export default function App() {
 
               <p style={{ fontSize: "20px", opacity: 0.9 }}>
                 Professional academic editing, proofreading, writing support for essays,
-                dissertations, and research papers. Improve clarity, structure, grammar, and academic quality with expert-level assistance.
+                dissertations, and research papers.
               </p>
 
               <a href="https://wa.me/254726434657" style={cta}>
@@ -93,30 +116,39 @@ export default function App() {
               </a>
             </div>
 
-            {/* PLACE ORDER (BACK IN HOME) */}
+            {/* PLACE ORDER (NOW WORKS WITH WHATSAPP) */}
             <div style={card}>
               <h2>Place Your Order</h2>
 
-              <input placeholder="Title of work" style={input} />
-              <input placeholder="Number of pages" style={input} />
-              <textarea placeholder="Instructions..." rows="5" style={input} />
+              <input
+                placeholder="Title of work"
+                style={input}
+                value={order.title}
+                onChange={(e) => setOrder({ ...order, title: e.target.value })}
+              />
 
-              <button style={button}>Submit Order</button>
+              <input
+                placeholder="Number of pages"
+                style={input}
+                value={order.pages}
+                onChange={(e) => setOrder({ ...order, pages: e.target.value })}
+              />
+
+              <textarea
+                placeholder="Instructions..."
+                rows="5"
+                style={input}
+                value={order.instructions}
+                onChange={(e) => setOrder({ ...order, instructions: e.target.value })}
+              />
+
+              <button onClick={sendOrder} style={button}>
+                Submit Order (Send to WhatsApp)
+              </button>
             </div>
 
-            {/* FINAL CTA (RESTORED) */}
-            <div style={{
-              marginTop: "40px",
-              padding: "30px",
-              background: "linear-gradient(90deg, #1d4ed8, #2563eb)",
-              textAlign: "center",
-              borderRadius: "18px",
-              fontWeight: "bold",
-              fontSize: "22px",
-              maxWidth: "1400px",
-              marginLeft: "auto",
-              marginRight: "auto"
-            }}>
+            {/* FINAL CTA */}
+            <div style={finalCTA}>
               Message Now for Fast Academic Help
             </div>
           </>
@@ -127,8 +159,7 @@ export default function App() {
           <>
             <div style={card}>
               <h2>Academic Services</h2>
-
-              <ul style={{ lineHeight: "2", fontSize: "18px" }}>
+              <ul style={list}>
                 <li>Academic editing services UK & US</li>
                 <li>Essay proofreading & improvement</li>
                 <li>Dissertation & thesis support</li>
@@ -139,43 +170,72 @@ export default function App() {
 
             <div style={card}>
               <h2>Why Choose Us</h2>
-
-              <ul style={{ lineHeight: "2", fontSize: "18px" }}>
+              <ul style={list}>
                 <li>✔ 5+ years academic experience</li>
-                <li>✔ UK & US academic standards</li>
-                <li>✔ 100% confidentiality guaranteed</li>
-                <li>✔ Fast 24–48 hour delivery</li>
-                <li>✔ Over 5,000+ papers handled</li>
+                <li>✔ UK & US standards</li>
+                <li>✔ Confidential service</li>
+                <li>✔ 24–48 hour delivery</li>
+                <li>✔ 5,000+ papers handled</li>
               </ul>
             </div>
 
             <div style={card}>
-              <h2>Trusted by Students & Researchers</h2>
-
+              <h2>Trusted by Students</h2>
               <p style={{ opacity: 0.85, lineHeight: "1.8" }}>
-                Helping students improve grades, structure, and clarity in academic writing across UK and US universities.
+                Helping students improve academic performance worldwide.
               </p>
             </div>
 
             <div style={card}>
-              <h2>Academic Editing Services for UK & US Students</h2>
-
-              <p style={{ opacity: 0.85, lineHeight: "1.8" }}>
-                We specialize in academic editing, proofreading, and writing support for students in the United Kingdom and United States.
-                Our services improve grammar, structure, clarity, and academic performance.
-              </p>
-            </div>
-
-            <div style={card}>
-              <h2>Helpful Academic Tips</h2>
-
-              <ul style={{ lineHeight: "2", fontSize: "18px" }}>
-                <li>How to improve essay structure for higher grades</li>
-                <li>Common grammar mistakes in academic writing</li>
-                <li>How to format APA and MLA citations correctly</li>
+              <h2>Academic Tips</h2>
+              <ul style={list}>
+                <li>Essay structure improvement</li>
+                <li>Grammar correction tips</li>
+                <li>APA & MLA formatting</li>
               </ul>
             </div>
           </>
+        )}
+
+        {/* ================= PRICING ================= */}
+        {activePage === "pricing" && (
+          <>
+            <div style={card}>
+              <h2>Pricing Packages</h2>
+
+              <p>✔ Basic Editing — $10–$12 per page</p>
+              <p>✔ Advanced Editing — $15–$20 per page</p>
+              <p>✔ Dissertation Help — Custom Quote</p>
+              <p>✔ Urgent 24h — Extra Charges</p>
+            </div>
+          </>
+        )}
+
+        {/* ================= CHAT ================= */}
+        {activePage === "chat" && (
+          <div style={card}>
+            <h2>Chat Support</h2>
+
+            <div style={{
+              background: "#0f172a",
+              padding: "15px",
+              borderRadius: "10px",
+              marginBottom: "15px"
+            }}>
+              Send us a message — we reply on WhatsApp instantly.
+            </div>
+
+            <input
+              placeholder="Type your message..."
+              style={input}
+              value={chatMessage}
+              onChange={(e) => setChatMessage(e.target.value)}
+            />
+
+            <button onClick={sendChat} style={button}>
+              Send to WhatsApp
+            </button>
+          </div>
         )}
 
       </div>
@@ -215,7 +275,8 @@ const button = {
   color: "white",
   border: "none",
   borderRadius: "10px",
-  fontWeight: "bold"
+  fontWeight: "bold",
+  cursor: "pointer"
 };
 
 const cta = {
@@ -244,4 +305,22 @@ const helpBtn = {
 const menuItem = {
   cursor: "pointer",
   color: "white"
+};
+
+const list = {
+  lineHeight: "2",
+  fontSize: "18px"
+};
+
+const finalCTA = {
+  marginTop: "40px",
+  padding: "30px",
+  background: "linear-gradient(90deg, #1d4ed8, #2563eb)",
+  textAlign: "center",
+  borderRadius: "18px",
+  fontWeight: "bold",
+  fontSize: "22px",
+  maxWidth: "1400px",
+  marginLeft: "auto",
+  marginRight: "auto"
 };
