@@ -109,7 +109,10 @@ Instructions: ${order.instructions}
         {activePage === "home" && (
           <>
             <div style={card}>
-              <h1 style={{ fontSize: "48px" }}>
+              <h1 style={{
+  fontSize: "clamp(28px, 5vw, 48px)",
+  lineHeight: "1.2"
+}}>
                 Academic Editing & Writing Support Services
               </h1>
 
