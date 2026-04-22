@@ -4,7 +4,6 @@ export default function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activePage, setActivePage] = useState("home");
 
-  // ORDER FORM STATE
   const [order, setOrder] = useState({
     title: "",
     pages: "",
@@ -18,22 +17,33 @@ export default function App() {
     setMenuOpen(false);
   };
 
-  // ✅ SEND ORDER TO WHATSAPP
+  // ✅ ORDER → WHATSAPP (FULL STRUCTURED MESSAGE)
   const sendOrder = () => {
-    const message =
-`📘 NEW ORDER REQUEST:
+    if (!order.title && !order.pages && !order.instructions) return;
+
+    const message = `
+📘 NEW ORDER REQUEST
+------------------------
 Title: ${order.title}
 Pages: ${order.pages}
-Instructions: ${order.instructions}`;
+Instructions: ${order.instructions}
+------------------------
+`;
 
-    const url = `https://wa.me/254726434657?text=${encodeURIComponent(message)}`;
-    window.open(url, "_blank");
+    window.open(
+      `https://wa.me/254726434657?text=${encodeURIComponent(message)}`,
+      "_blank"
+    );
   };
 
-  // ✅ SEND CHAT TO WHATSAPP
+  // ✅ CHAT → WHATSAPP
   const sendChat = () => {
-    const url = `https://wa.me/254726434657?text=${encodeURIComponent("💬 Chat Support: " + chatMessage)}`;
-    window.open(url, "_blank");
+    if (!chatMessage) return;
+
+    window.open(
+      `https://wa.me/254726434657?text=${encodeURIComponent("💬 SUPPORT REQUEST:\n" + chatMessage)}`,
+      "_blank"
+    );
   };
 
   return (
@@ -54,9 +64,7 @@ Instructions: ${order.instructions}`;
         position: "relative"
       }}>
 
-        {/* MENU */}
         <div style={{ position: "relative" }}>
-
           <div
             onClick={() => setMenuOpen(!menuOpen)}
             style={{ fontSize: "32px", cursor: "pointer" }}
@@ -87,7 +95,6 @@ Instructions: ${order.instructions}`;
 
             </div>
           )}
-
         </div>
 
         <div style={{ fontWeight: "bold", fontSize: "20px" }}>
@@ -95,7 +102,7 @@ Instructions: ${order.instructions}`;
         </div>
       </div>
 
-      {/* MAIN AREA */}
+      {/* MAIN */}
       <div style={{ background: "#081120", padding: "60px 40px" }}>
 
         {/* ================= HOME ================= */}
@@ -107,8 +114,7 @@ Instructions: ${order.instructions}`;
               </h1>
 
               <p style={{ fontSize: "20px", opacity: 0.9 }}>
-                Professional academic editing, proofreading, writing support for essays,
-                dissertations, and research papers.
+                Professional academic editing, proofreading, writing support for essays, dissertations, and research papers.
               </p>
 
               <a href="https://wa.me/254726434657" style={cta}>
@@ -116,7 +122,7 @@ Instructions: ${order.instructions}`;
               </a>
             </div>
 
-            {/* PLACE ORDER (NOW WORKS WITH WHATSAPP) */}
+            {/* ORDER FORM */}
             <div style={card}>
               <h2>Place Your Order</h2>
 
@@ -143,11 +149,10 @@ Instructions: ${order.instructions}`;
               />
 
               <button onClick={sendOrder} style={button}>
-                Submit Order (Send to WhatsApp)
+                Submit Order
               </button>
             </div>
 
-            {/* FINAL CTA */}
             <div style={finalCTA}>
               Message Now for Fast Academic Help
             </div>
@@ -171,7 +176,7 @@ Instructions: ${order.instructions}`;
             <div style={card}>
               <h2>Why Choose Us</h2>
               <ul style={list}>
-                <li>✔ 5+ years academic experience</li>
+                <li>✔ 5+ years experience</li>
                 <li>✔ UK & US standards</li>
                 <li>✔ Confidential service</li>
                 <li>✔ 24–48 hour delivery</li>
@@ -180,33 +185,48 @@ Instructions: ${order.instructions}`;
             </div>
 
             <div style={card}>
-              <h2>Trusted by Students</h2>
-              <p style={{ opacity: 0.85, lineHeight: "1.8" }}>
+              <h2>Trusted Results</h2>
+              <p style={{ opacity: 0.85 }}>
                 Helping students improve academic performance worldwide.
               </p>
             </div>
 
             <div style={card}>
-              <h2>Academic Tips</h2>
+              <h2>Academic Writing Tips</h2>
               <ul style={list}>
-                <li>Essay structure improvement</li>
-                <li>Grammar correction tips</li>
-                <li>APA & MLA formatting</li>
+                <li>Structure improvement</li>
+                <li>Grammar correction</li>
+                <li>Formatting guides</li>
               </ul>
             </div>
           </>
         )}
 
-        {/* ================= PRICING ================= */}
+        {/* ================= PRICING (NOW IMPROVED) ================= */}
         {activePage === "pricing" && (
           <>
             <div style={card}>
-              <h2>Pricing Packages</h2>
+              <h2>Pricing Overview</h2>
+            </div>
 
-              <p>✔ Basic Editing — $10–$12 per page</p>
-              <p>✔ Advanced Editing — $15–$20 per page</p>
-              <p>✔ Dissertation Help — Custom Quote</p>
-              <p>✔ Urgent 24h — Extra Charges</p>
+            <div style={card}>
+              <h3>📄 Basic Editing</h3>
+              <p>$10 – $12 per page</p>
+            </div>
+
+            <div style={card}>
+              <h3>📘 Advanced Editing</h3>
+              <p>$15 – $20 per page</p>
+            </div>
+
+            <div style={card}>
+              <h3>🎓 Dissertation Support</h3>
+              <p>Custom pricing depending on complexity</p>
+            </div>
+
+            <div style={card}>
+              <h3>⚡ Urgent Delivery</h3>
+              <p>Extra charges apply (24h turnaround)</p>
             </div>
           </>
         )}
@@ -216,14 +236,9 @@ Instructions: ${order.instructions}`;
           <div style={card}>
             <h2>Chat Support</h2>
 
-            <div style={{
-              background: "#0f172a",
-              padding: "15px",
-              borderRadius: "10px",
-              marginBottom: "15px"
-            }}>
-              Send us a message — we reply on WhatsApp instantly.
-            </div>
+            <p style={{ opacity: 0.8 }}>
+              All messages are sent directly to WhatsApp for instant response.
+            </p>
 
             <input
               placeholder="Type your message..."
@@ -233,14 +248,14 @@ Instructions: ${order.instructions}`;
             />
 
             <button onClick={sendChat} style={button}>
-              Send to WhatsApp
+              Send Message
             </button>
           </div>
         )}
 
       </div>
 
-      {/* HELP BUTTON */}
+      {/* HELP */}
       <a href="https://wa.me/254726434657" style={helpBtn}>
         Help
       </a>
