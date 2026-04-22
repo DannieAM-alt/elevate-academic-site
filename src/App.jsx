@@ -10,7 +10,7 @@ export default function App() {
 
       <div style={{
         width: "100%",
-        background: "#0f172a",
+        background: "#081120",
         padding: "60px 40px",
         boxSizing: "border-box",
         boxShadow: "0 10px 30px rgba(0,0,0,0.4)"
