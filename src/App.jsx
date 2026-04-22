@@ -3,10 +3,16 @@ import { useState } from "react";
 export default function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activePage, setActivePage] = useState("home");
+  const [chatMessage, setChatMessage] = useState("");
 
   const goTo = (page) => {
     setActivePage(page);
     setMenuOpen(false);
+  };
+
+  const sendChat = () => {
+    const url = `https://wa.me/254726434657?text=${encodeURIComponent(chatMessage)}`;
+    window.open(url, "_blank");
   };
 
   return (
@@ -23,62 +29,34 @@ export default function App() {
         padding: "20px 40px",
         borderBottom: "1px solid #1e293b",
         display: "flex",
-        justifyContent: "space-between",
-        position: "relative"
+        justifyContent: "space-between"
       }}>
 
         {/* MENU */}
         <div style={{ position: "relative" }}>
-
-          <div
-            onClick={() => setMenuOpen(!menuOpen)}
-            style={{ fontSize: "32px", cursor: "pointer" }}
-          >
+          <div onClick={() => setMenuOpen(!menuOpen)} style={{ fontSize: "32px", cursor: "pointer" }}>
             ☰
           </div>
 
           {menuOpen && (
-            <div style={{
-              position: "absolute",
-              top: "45px",
-              left: "0",
-              background: "#0f172a",
-              border: "1px solid #1e293b",
-              borderRadius: "12px",
-              padding: "12px",
-              width: "220px",
-              display: "flex",
-              flexDirection: "column",
-              gap: "10px",
-              zIndex: 999
-            }}>
-
+            <div style={menuBox}>
               <div onClick={() => goTo("home")} style={menuItem}>Home</div>
               <div onClick={() => goTo("services")} style={menuItem}>Services</div>
-              <div onClick={() => goTo("order")} style={menuItem}>Place Order</div>
               <div onClick={() => goTo("pricing")} style={menuItem}>Pricing</div>
               <div onClick={() => goTo("chat")} style={menuItem}>Chat Support</div>
-
             </div>
           )}
-
         </div>
 
-        <div style={{ fontWeight: "bold", fontSize: "20px" }}>
-          Elevate Academic
-        </div>
+        <div style={{ fontWeight: "bold" }}>Elevate Academic</div>
       </div>
 
-      {/* MAIN AREA */}
-      <div style={{
-        background: "#081120",
-        padding: "60px 40px"
-      }}>
+      {/* MAIN */}
+      <div style={{ background: "#081120", padding: "60px 40px" }}>
 
-        {/* ================= HOME ================= */}
+        {/* HOME */}
         {activePage === "home" && (
           <>
-            {/* HERO */}
             <div style={card}>
               <h1 style={{ fontSize: "48px" }}>
                 Academic Editing & Writing Support Services
@@ -94,7 +72,7 @@ export default function App() {
               </a>
             </div>
 
-            {/* PLACE ORDER (NOW BACK IN HOME) */}
+            {/* ORDER FORM */}
             <div style={card}>
               <h2>Place Your Order</h2>
 
@@ -104,62 +82,73 @@ export default function App() {
 
               <button style={button}>Submit Order</button>
             </div>
+
+            {/* FINAL CTA (RESTORED) */}
+            <div style={ctaBanner}>
+              Message Now for Fast Academic Help
+            </div>
           </>
         )}
 
-        {/* ================= SERVICES ================= */}
+        {/* SERVICES */}
         {activePage === "services" && (
           <>
             <div style={card}>
               <h2>Academic Services</h2>
-
-              <ul style={{ lineHeight: "2", fontSize: "18px" }}>
-                <li>Academic editing services UK & US</li>
-                <li>Essay proofreading & improvement</li>
-                <li>Dissertation & thesis support</li>
-                <li>Academic writing assistance</li>
-                <li>APA / MLA / Harvard formatting</li>
-              </ul>
-            </div>
-
-            <div style={card}>
-              <h2>Why Choose Us</h2>
-
-              <ul style={{ lineHeight: "2", fontSize: "18px" }}>
-                <li>✔ 5+ years academic experience</li>
-                <li>✔ UK & US academic standards</li>
-                <li>✔ 100% confidentiality</li>
-                <li>✔ 24–48 hour delivery</li>
-                <li>✔ 5,000+ papers handled</li>
-              </ul>
-            </div>
-
-            <div style={card}>
-              <h2>Trusted by Students & Researchers</h2>
-
-              <p style={{ opacity: 0.85, lineHeight: "1.8" }}>
-                Helping students improve grades, structure, and clarity across UK & US universities.
-              </p>
-            </div>
-
-            <div style={card}>
-              <h2>Academic SEO Support</h2>
-
-              <p style={{ opacity: 0.85, lineHeight: "1.8" }}>
-                We specialize in academic editing, proofreading, and writing improvement services.
-              </p>
-            </div>
-
-            <div style={card}>
-              <h2>Helpful Academic Tips</h2>
-
-              <ul style={{ lineHeight: "2", fontSize: "18px" }}>
-                <li>Essay structure improvement</li>
-                <li>Grammar mistake correction</li>
-                <li>APA & MLA formatting guide</li>
-              </ul>
+              <ul><li>Editing</li><li>Proofreading</li><li>Dissertations</li></ul>
             </div>
           </>
+        )}
+
+        {/* PRICING (FIXED + EXPANDED) */}
+        {activePage === "pricing" && (
+          <>
+            <div style={card}>
+              <h2>Basic Pricing</h2>
+              <p>✔ Basic Editing — $10–$12/page</p>
+              <p>✔ Advanced Editing — $15–$20/page</p>
+            </div>
+
+            <div style={card}>
+              <h2>Premium Services</h2>
+              <p>✔ Dissertation Writing — Custom Quote</p>
+              <p>✔ Research Papers — Custom Quote</p>
+            </div>
+
+            <div style={card}>
+              <h2>Urgent Delivery</h2>
+              <p>✔ 24-hour delivery available (extra fee)</p>
+              <p>✔ Priority handling for deadlines</p>
+            </div>
+          </>
+        )}
+
+        {/* CHAT (NOW FUNCTIONAL VIA WHATSAPP) */}
+        {activePage === "chat" && (
+          <div style={card}>
+            <h2>Chat Support</h2>
+
+            <div style={{
+              background: "#0f172a",
+              padding: "20px",
+              borderRadius: "10px",
+              minHeight: "120px",
+              marginBottom: "15px"
+            }}>
+              Type your message below and send to WhatsApp 👇
+            </div>
+
+            <textarea
+              value={chatMessage}
+              onChange={(e) => setChatMessage(e.target.value)}
+              placeholder="Type message..."
+              style={input}
+            />
+
+            <button onClick={sendChat} style={button}>
+              Send Message
+            </button>
+          </div>
         )}
 
       </div>
@@ -199,7 +188,8 @@ const button = {
   color: "white",
   border: "none",
   borderRadius: "10px",
-  fontWeight: "bold"
+  fontWeight: "bold",
+  cursor: "pointer"
 };
 
 const cta = {
@@ -213,6 +203,19 @@ const cta = {
   textDecoration: "none"
 };
 
+const ctaBanner = {
+  marginTop: "40px",
+  padding: "30px",
+  background: "linear-gradient(90deg, #1d4ed8, #2563eb)",
+  textAlign: "center",
+  borderRadius: "18px",
+  fontWeight: "bold",
+  fontSize: "22px",
+  maxWidth: "1400px",
+  marginLeft: "auto",
+  marginRight: "auto"
+};
+
 const helpBtn = {
   position: "fixed",
   bottom: "20px",
@@ -223,6 +226,21 @@ const helpBtn = {
   borderRadius: "50px",
   fontWeight: "bold",
   textDecoration: "none"
+};
+
+const menuBox = {
+  position: "absolute",
+  top: "45px",
+  left: "0",
+  background: "#0f172a",
+  border: "1px solid #1e293b",
+  borderRadius: "12px",
+  padding: "12px",
+  width: "220px",
+  display: "flex",
+  flexDirection: "column",
+  gap: "10px",
+  zIndex: 999
 };
 
 const menuItem = {
