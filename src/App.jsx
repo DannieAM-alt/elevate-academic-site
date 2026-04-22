@@ -18,13 +18,49 @@ export default function App() {
         justifyContent: "space-between"
       }}>
 
-        {/* MENU BUTTON */}
-        <div style={{
-          fontSize: "32px",
-          cursor: "pointer"
-        }}>
-          ☰
-        </div>
+        {/* MENU BUTTON (HOME MENU) */}
+<div style={{
+  position: "relative",
+  fontSize: "32px",
+  cursor: "pointer"
+}}>
+
+  ☰
+
+  {/* DROPDOWN MENU */}
+  <div style={{
+    position: "absolute",
+    top: "45px",
+    left: "0px",
+    background: "#0f172a",
+    border: "1px solid #1e293b",
+    borderRadius: "12px",
+    padding: "12px",
+    width: "220px",
+    display: "flex",
+    flexDirection: "column",
+    gap: "10px"
+  }}>
+
+    <a href="#services" style={{ color: "white", textDecoration: "none" }}>
+      Services
+    </a>
+
+    <a href="#order" style={{ color: "white", textDecoration: "none" }}>
+      Place Order
+    </a>
+
+    <a href="#pricing" style={{ color: "white", textDecoration: "none" }}>
+      Pricing
+    </a>
+
+    <a href="#chat" style={{ color: "white", textDecoration: "none" }}>
+      Chat Support
+    </a>
+
+  </div>
+
+</div>
 
         <div style={{
           fontSize: "20px",
