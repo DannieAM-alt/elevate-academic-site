@@ -5,29 +5,29 @@ export default function App() {
       background: "#020617",
       color: "white",
       minHeight: "100vh",
-      padding: "60px 20px"
+      padding: "0px"
     }}>
 
       <div style={{
         width: "100%",
-        maxWidth: "1200px",
-        margin: "auto",
         background: "#0f172a",
-        padding: "60px",
-        borderRadius: "16px",
+        padding: "60px 40px",
+        boxSizing: "border-box",
         boxShadow: "0 10px 30px rgba(0,0,0,0.4)"
       }}>
 
         {/* HERO */}
         <div style={{
           background: "#111827",
-          padding: "40px",
-          borderRadius: "14px"
+          padding: "50px",
+          borderRadius: "18px",
+          maxWidth: "1400px",
+          margin: "0 auto"
         }}>
 
           <h1 style={{
-            fontSize: "42px",
-            marginBottom: "15px",
+            fontSize: "48px",
+            marginBottom: "20px",
             lineHeight: "1.2"
           }}>
             Academic Editing & Writing Support Services in UK & US
@@ -36,7 +36,8 @@ export default function App() {
           <p style={{
             opacity: 0.9,
             lineHeight: "1.8",
-            fontSize: "18px"
+            fontSize: "20px",
+            maxWidth: "900px"
           }}>
             Professional academic editing, proofreading, and writing support for essays,
             dissertations, and research papers. Improve clarity, structure,
@@ -50,14 +51,14 @@ export default function App() {
             rel="noreferrer"
             style={{
               display: "inline-block",
-              marginTop: "25px",
-              padding: "16px 24px",
+              marginTop: "30px",
+              padding: "18px 28px",
               background: "#22c55e",
               color: "black",
               fontWeight: "bold",
-              borderRadius: "10px",
+              borderRadius: "12px",
               textDecoration: "none",
-              fontSize: "16px",
+              fontSize: "17px",
               boxShadow: "0 8px 20px rgba(34,197,94,0.3)"
             }}
           >
@@ -67,8 +68,9 @@ export default function App() {
           {/* URGENCY TEXT */}
           <p style={{
             color: "#fbbf24",
-            marginTop: "14px",
-            fontWeight: "bold"
+            marginTop: "16px",
+            fontWeight: "bold",
+            fontSize: "15px"
           }}>
             ⚡ Limited slots available each day — priority delivery in 24–48 hours
           </p>
@@ -78,18 +80,22 @@ export default function App() {
         {/* SERVICES */}
         <div style={{
           background: "#172033",
-          padding: "35px",
-          borderRadius: "14px",
-          marginTop: "35px"
+          padding: "40px",
+          borderRadius: "18px",
+          marginTop: "40px",
+          maxWidth: "1400px",
+          marginLeft: "auto",
+          marginRight: "auto"
         }}>
 
-          <h2 style={{ fontSize: "30px" }}>
+          <h2 style={{ fontSize: "32px" }}>
             Academic Services
           </h2>
 
           <ul style={{
             lineHeight: "2",
-            marginTop: "20px"
+            marginTop: "20px",
+            fontSize: "18px"
           }}>
             <li>Academic editing services UK & US</li>
             <li>Essay proofreading & improvement</li>
@@ -103,18 +109,22 @@ export default function App() {
         {/* WHY CHOOSE */}
         <div style={{
           background: "#111827",
-          padding: "35px",
-          borderRadius: "14px",
-          marginTop: "35px"
+          padding: "40px",
+          borderRadius: "18px",
+          marginTop: "40px",
+          maxWidth: "1400px",
+          marginLeft: "auto",
+          marginRight: "auto"
         }}>
 
-          <h2 style={{ fontSize: "30px" }}>
+          <h2 style={{ fontSize: "32px" }}>
             Why Choose Us
           </h2>
 
           <ul style={{
             lineHeight: "2",
-            marginTop: "20px"
+            marginTop: "20px",
+            fontSize: "18px"
           }}>
             <li>✔ 5+ years academic experience</li>
             <li>✔ UK & US academic standards</li>
@@ -128,19 +138,23 @@ export default function App() {
         {/* TRUST SECTION */}
         <div style={{
           background: "#172033",
-          padding: "35px",
-          borderRadius: "14px",
-          marginTop: "35px"
+          padding: "40px",
+          borderRadius: "18px",
+          marginTop: "40px",
+          maxWidth: "1400px",
+          marginLeft: "auto",
+          marginRight: "auto"
         }}>
 
-          <h2 style={{ fontSize: "30px" }}>
+          <h2 style={{ fontSize: "32px" }}>
             Trusted by Students & Researchers
           </h2>
 
           <p style={{
             opacity: 0.85,
             lineHeight: "1.8",
-            marginTop: "15px"
+            marginTop: "15px",
+            fontSize: "18px"
           }}>
             Helping students improve grades, structure, and clarity in academic writing
             across universities in the UK and US.
@@ -151,19 +165,23 @@ export default function App() {
         {/* SEO BOOST */}
         <div style={{
           background: "#111827",
-          padding: "35px",
-          borderRadius: "14px",
-          marginTop: "35px"
+          padding: "40px",
+          borderRadius: "18px",
+          marginTop: "40px",
+          maxWidth: "1400px",
+          marginLeft: "auto",
+          marginRight: "auto"
         }}>
 
-          <h2 style={{ fontSize: "30px" }}>
+          <h2 style={{ fontSize: "32px" }}>
             Academic Editing Services for UK & US Students
           </h2>
 
           <p style={{
             opacity: 0.85,
             lineHeight: "1.8",
-            marginTop: "15px"
+            marginTop: "15px",
+            fontSize: "18px"
           }}>
             We specialize in academic editing, proofreading, and writing support
             for students in the United Kingdom and United States.
@@ -176,18 +194,22 @@ export default function App() {
         {/* BLOG SECTION */}
         <div style={{
           background: "#172033",
-          padding: "35px",
-          borderRadius: "14px",
-          marginTop: "35px"
+          padding: "40px",
+          borderRadius: "18px",
+          marginTop: "40px",
+          maxWidth: "1400px",
+          marginLeft: "auto",
+          marginRight: "auto"
         }}>
 
-          <h2 style={{ fontSize: "30px" }}>
+          <h2 style={{ fontSize: "32px" }}>
             Helpful Academic Tips
           </h2>
 
           <ul style={{
             lineHeight: "2",
-            marginTop: "20px"
+            marginTop: "20px",
+            fontSize: "18px"
           }}>
             <li>How to improve essay structure for higher grades</li>
             <li>Common grammar mistakes in academic writing</li>
@@ -199,21 +221,24 @@ export default function App() {
         {/* PRICING */}
         <div style={{
           background: "#1e293b",
-          padding: "35px",
-          borderRadius: "14px",
-          marginTop: "35px",
-          border: "1px solid #334155"
+          padding: "40px",
+          borderRadius: "18px",
+          marginTop: "40px",
+          border: "1px solid #334155",
+          maxWidth: "1400px",
+          marginLeft: "auto",
+          marginRight: "auto"
         }}>
 
-          <h2 style={{ fontSize: "30px" }}>
+          <h2 style={{ fontSize: "32px" }}>
             Pricing
           </h2>
 
-          <p style={{ marginTop: "20px" }}>
+          <p style={{ marginTop: "20px", fontSize: "18px" }}>
             <b>$10–$12 per page</b> — Basic Editing
           </p>
 
-          <p>
+          <p style={{ fontSize: "18px" }}>
             <b>$15–$20 per page</b> — Advanced Editing
           </p>
 
@@ -221,13 +246,16 @@ export default function App() {
 
         {/* FINAL CTA */}
         <div style={{
-          marginTop: "35px",
-          padding: "25px",
+          marginTop: "40px",
+          padding: "30px",
           background: "linear-gradient(90deg, #1d4ed8, #2563eb)",
           textAlign: "center",
-          borderRadius: "14px",
+          borderRadius: "18px",
           fontWeight: "bold",
-          fontSize: "20px"
+          fontSize: "22px",
+          maxWidth: "1400px",
+          marginLeft: "auto",
+          marginRight: "auto"
         }}>
           Message Now for Fast Academic Help
         </div>
@@ -245,7 +273,7 @@ export default function App() {
           right: "20px",
           background: "#22c55e",
           color: "black",
-          padding: "16px 20px",
+          padding: "16px 22px",
           borderRadius: "50px",
           fontWeight: "bold",
           textDecoration: "none",
