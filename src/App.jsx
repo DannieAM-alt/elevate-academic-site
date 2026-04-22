@@ -1,4 +1,8 @@
+import { useState } from "react";
+
 export default function App() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
     <div style={{
       fontFamily: "Arial",
@@ -15,61 +19,49 @@ export default function App() {
         borderBottom: "1px solid #1e293b",
         display: "flex",
         alignItems: "center",
-        justifyContent: "space-between"
+        justifyContent: "space-between",
+        position: "relative"
       }}>
 
-        {/* MENU BUTTON (HOME MENU) */}
-<div style={{ position: "relative", display: "inline-block" }}>
+        {/* MENU BUTTON */}
+        <div style={{ position: "relative" }}>
 
-  {/* MENU ICON */}
-  <div
-    onClick={() => setMenuOpen(!menuOpen)}
-    style={{
-      fontSize: "32px",
-      cursor: "pointer",
-      userSelect: "none"
-    }}
-  >
-    ☰
-  </div>
+          <div
+            onClick={() => setMenuOpen(!menuOpen)}
+            style={{
+              fontSize: "32px",
+              cursor: "pointer",
+              userSelect: "none"
+            }}
+          >
+            ☰
+          </div>
 
-  {/* DROPDOWN MENU */}
-  {menuOpen && (
-    <div style={{
-      position: "absolute",
-      top: "45px",
-      left: "0px",
-      background: "#0f172a",
-      border: "1px solid #1e293b",
-      borderRadius: "12px",
-      padding: "12px",
-      width: "220px",
-      display: "flex",
-      flexDirection: "column",
-      gap: "10px",
-      zIndex: 999
-    }}>
+          {menuOpen && (
+            <div style={{
+              position: "absolute",
+              top: "45px",
+              left: "0px",
+              background: "#0f172a",
+              border: "1px solid #1e293b",
+              borderRadius: "12px",
+              padding: "12px",
+              width: "220px",
+              display: "flex",
+              flexDirection: "column",
+              gap: "10px",
+              zIndex: 999
+            }}>
 
-      <a href="#services" style={{ color: "white", textDecoration: "none" }}>
-        Services
-      </a>
+              <a href="#services" style={{ color: "white", textDecoration: "none" }}>Services</a>
+              <a href="#order" style={{ color: "white", textDecoration: "none" }}>Place Order</a>
+              <a href="#pricing" style={{ color: "white", textDecoration: "none" }}>Pricing</a>
+              <a href="#chat" style={{ color: "white", textDecoration: "none" }}>Chat Support</a>
 
-      <a href="#order" style={{ color: "white", textDecoration: "none" }}>
-        Place Order
-      </a>
+            </div>
+          )}
 
-      <a href="#pricing" style={{ color: "white", textDecoration: "none" }}>
-        Pricing
-      </a>
-
-      <a href="#chat" style={{ color: "white", textDecoration: "none" }}>
-        Chat Support
-      </a>
-
-    </div>
-  )}
-
-</div>
+        </div>
 
         <div style={{
           fontSize: "20px",
@@ -80,13 +72,12 @@ export default function App() {
 
       </div>
 
-      {/* MAIN BACKGROUND */}
+      {/* MAIN CONTENT WRAPPER */}
       <div style={{
         width: "100%",
         background: "#081120",
         padding: "60px 40px",
-        boxSizing: "border-box",
-        boxShadow: "0 10px 30px rgba(0,0,0,0.4)"
+        boxSizing: "border-box"
       }}>
 
         {/* HERO */}
@@ -143,60 +134,14 @@ export default function App() {
           borderRadius: "18px",
           marginTop: "40px",
           maxWidth: "1400px",
-          marginLeft: "auto",
-          marginRight: "auto"
+          margin: "40px auto 0 auto"
         }}>
 
-          <h2 style={{
-            fontSize: "32px",
-            marginBottom: "25px"
-          }}>
-            Place Your Order
-          </h2>
+          <h2>Place Your Order</h2>
 
-          <input
-            type="text"
-            placeholder="Title of your paper/work"
-            style={{
-              width: "100%",
-              padding: "16px",
-              marginBottom: "20px",
-              borderRadius: "10px",
-              border: "1px solid #334155",
-              background: "#0f172a",
-              color: "white",
-              fontSize: "16px"
-            }}
-          />
-
-          <input
-            type="number"
-            placeholder="Number of pages"
-            style={{
-              width: "100%",
-              padding: "16px",
-              marginBottom: "20px",
-              borderRadius: "10px",
-              border: "1px solid #334155",
-              background: "#0f172a",
-              color: "white",
-              fontSize: "16px"
-            }}
-          />
-
-          <textarea
-            placeholder="Additional instructions..."
-            rows="5"
-            style={{
-              width: "100%",
-              padding: "16px",
-              borderRadius: "10px",
-              border: "1px solid #334155",
-              background: "#0f172a",
-              color: "white",
-              fontSize: "16px"
-            }}
-          ></textarea>
+          <input placeholder="Title of your paper/work" style={inputStyle} />
+          <input placeholder="Number of pages" type="number" style={inputStyle} />
+          <textarea placeholder="Additional instructions..." rows="5" style={inputStyle}></textarea>
 
           <button style={{
             marginTop: "20px",
@@ -206,86 +151,55 @@ export default function App() {
             border: "none",
             borderRadius: "10px",
             fontWeight: "bold",
-            cursor: "pointer",
-            fontSize: "16px"
+            cursor: "pointer"
           }}>
             Submit Order Request
           </button>
 
         </div>
 
-        {/* BASIC PRICE LIST */}
+        {/* PRICE LIST */}
         <div style={{
           background: "#111827",
           padding: "40px",
           borderRadius: "18px",
           marginTop: "40px",
           maxWidth: "1400px",
-          marginLeft: "auto",
-          marginRight: "auto"
+          margin: "40px auto 0 auto"
         }}>
 
-          <h2 style={{
-            fontSize: "32px"
-          }}>
-            Basic Price List
-          </h2>
+          <h2>Basic Price List</h2>
 
-          <div style={{
-            marginTop: "25px",
-            lineHeight: "2",
-            fontSize: "18px"
-          }}>
-            <p>✔ Basic Editing — $10–$12 per page</p>
-            <p>✔ Advanced Editing — $15–$20 per page</p>
-            <p>✔ Dissertation Support — Custom Pricing</p>
-            <p>✔ Urgent 24h Delivery — Extra Charges Apply</p>
-          </div>
+          <p>✔ Basic Editing — $10–$12 per page</p>
+          <p>✔ Advanced Editing — $15–$20 per page</p>
+          <p>✔ Dissertation Support — Custom Pricing</p>
+          <p>✔ Urgent 24h Delivery — Extra Charges Apply</p>
 
         </div>
 
-        {/* LIVE CHAT BOX */}
+        {/* CHAT */}
         <div style={{
           background: "#172033",
           padding: "40px",
           borderRadius: "18px",
           marginTop: "40px",
           maxWidth: "1400px",
-          marginLeft: "auto",
-          marginRight: "auto"
+          margin: "40px auto 0 auto"
         }}>
 
-          <h2 style={{
-            fontSize: "32px",
-            marginBottom: "20px"
-          }}>
-            Quick Chat
-          </h2>
+          <h2>Quick Chat</h2>
 
           <div style={{
             background: "#0f172a",
             padding: "20px",
             borderRadius: "12px",
-            minHeight: "150px",
-            marginBottom: "20px",
-            opacity: 0.85
+            minHeight: "120px",
+            marginBottom: "15px"
           }}>
-            Hello 👋 How can we help with your academic work today?
+            Hello 👋 How can we help?
           </div>
 
-          <input
-            type="text"
-            placeholder="Type your message..."
-            style={{
-              width: "100%",
-              padding: "16px",
-              borderRadius: "10px",
-              border: "1px solid #334155",
-              background: "#0f172a",
-              color: "white",
-              fontSize: "16px"
-            }}
-          />
+          <input placeholder="Type message..." style={inputStyle} />
 
         </div>
 
@@ -306,7 +220,6 @@ export default function App() {
           borderRadius: "50px",
           fontWeight: "bold",
           textDecoration: "none",
-          boxShadow: "0 10px 25px rgba(0,0,0,0.4)",
           zIndex: 9999
         }}
       >
@@ -316,3 +229,14 @@ export default function App() {
     </div>
   );
 }
+
+const inputStyle = {
+  width: "100%",
+  padding: "16px",
+  marginTop: "12px",
+  borderRadius: "10px",
+  border: "1px solid #334155",
+  background: "#0f172a",
+  color: "white",
+  fontSize: "16px"
+};
