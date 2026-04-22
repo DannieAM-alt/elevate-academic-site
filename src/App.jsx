@@ -22,30 +22,34 @@ export default function App() {
           Academic Editing & Writing Support Services in UK & US
         </h1>
 
-        <p style={{ fontSize: "16px", opacity: 0.9 }}>
+        <p style={{ opacity: 0.9, lineHeight: "1.6" }}>
           Professional academic editing, proofreading, and writing support for essays, dissertations, and research papers.
           Improve clarity, structure, grammar, and academic quality with expert-level assistance.
         </p>
 
-        {/* CTA */}
-        <div style={{
-          marginTop: "20px",
-          padding: "15px",
-          background: "#22c55e",
-          color: "black",
-          fontWeight: "bold",
-          textAlign: "center",
-          borderRadius: "8px"
-        }}>
+        {/* CTA BUTTON */}
+        <a
+          href="https://wa.me/254726434657"
+          target="_blank"
+          rel="noreferrer"
+          style={{
+            display: "inline-block",
+            marginTop: "20px",
+            padding: "14px 20px",
+            background: "#22c55e",
+            color: "black",
+            fontWeight: "bold",
+            borderRadius: "8px",
+            textDecoration: "none"
+          }}
+        >
           Get Instant Help on WhatsApp
-        </div>
+        </a>
 
         {/* SERVICES */}
-        <h2 style={{ marginTop: "30px" }}>
-          Academic Services
-        </h2>
+        <h2 style={{ marginTop: "35px" }}>Academic Services</h2>
 
-        <ul>
+        <ul style={{ lineHeight: "1.8" }}>
           <li>Academic editing services UK & US</li>
           <li>Essay proofreading & improvement</li>
           <li>Dissertation & thesis support</li>
@@ -54,11 +58,9 @@ export default function App() {
         </ul>
 
         {/* WHY CHOOSE */}
-        <h2 style={{ marginTop: "30px" }}>
-          Why Choose Us
-        </h2>
+        <h2 style={{ marginTop: "35px" }}>Why Choose Us</h2>
 
-        <ul>
+        <ul style={{ lineHeight: "1.8" }}>
           <li>✔ 5+ years academic experience</li>
           <li>✔ UK & US academic standards</li>
           <li>✔ 100% confidentiality guaranteed</li>
@@ -66,35 +68,22 @@ export default function App() {
           <li>✔ Over 5,000+ papers handled</li>
         </ul>
 
-        {/* SOCIAL PROOF */}
-        <h2 style={{ marginTop: "30px" }}>
-          Trusted by Students & Researchers
-        </h2>
+        {/* TRUST */}
+        <h2 style={{ marginTop: "35px" }}>Trusted by Students & Researchers</h2>
 
-        <p style={{ opacity: 0.85 }}>
+        <p style={{ opacity: 0.85, lineHeight: "1.6" }}>
           Helping students improve grades, structure, and clarity in academic writing across universities in the UK and US.
         </p>
 
         {/* PRICING */}
-        <h2 style={{ marginTop: "30px" }}>
-          Pricing
-        </h2>
+        <h2 style={{ marginTop: "35px" }}>Pricing</h2>
 
         <p><b>$10–$12 per page</b> — Basic Editing</p>
         <p><b>$15–$20 per page</b> — Advanced Editing</p>
 
-        {/* CONTACT */}
-        <h2 style={{ marginTop: "30px" }}>
-          Contact
-        </h2>
-
-        <p>
-          <b>WhatsApp:</b> +254726434657
-        </p>
-
         {/* FINAL CTA */}
         <div style={{
-          marginTop: "25px",
+          marginTop: "30px",
           padding: "18px",
           background: "#2563eb",
           textAlign: "center",
