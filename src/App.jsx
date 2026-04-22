@@ -103,8 +103,8 @@ export default function App() {
             fontSize: "20px",
             maxWidth: "900px"
           }}>
-            Professional academic editing, proofreading, and writing support for essays,
-            dissertations, and research papers.
+            Professional academic editing, proofreading, writing support for essays,
+            dissertations, and research papers. Improve clarity, structure, grammar, and academic quality with expert-level assistance.
           </p>
 
           <a
