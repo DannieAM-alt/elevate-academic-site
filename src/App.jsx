@@ -2,6 +2,12 @@ import { useState } from "react";
 
 export default function App() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [activePage, setActivePage] = useState("home");
+
+  const goTo = (page) => {
+    setActivePage(page);
+    setMenuOpen(false);
+  };
 
   return (
     <div style={{
@@ -53,26 +59,24 @@ export default function App() {
               zIndex: 999
             }}>
 
-              <a href="#services" style={{ color: "white", textDecoration: "none" }}>Services</a>
-              <a href="#order" style={{ color: "white", textDecoration: "none" }}>Place Order</a>
-              <a href="#pricing" style={{ color: "white", textDecoration: "none" }}>Pricing</a>
-              <a href="#chat" style={{ color: "white", textDecoration: "none" }}>Chat Support</a>
+              <div onClick={() => goTo("home")} style={menuItem}>Home</div>
+              <div onClick={() => goTo("services")} style={menuItem}>Services</div>
+              <div onClick={() => goTo("order")} style={menuItem}>Place Order</div>
+              <div onClick={() => goTo("pricing")} style={menuItem}>Pricing</div>
+              <div onClick={() => goTo("chat")} style={menuItem}>Chat Support</div>
 
             </div>
           )}
 
         </div>
 
-        <div style={{
-          fontSize: "20px",
-          fontWeight: "bold"
-        }}>
+        <div style={{ fontSize: "20px", fontWeight: "bold" }}>
           Elevate Academic
         </div>
 
       </div>
 
-      {/* MAIN CONTENT WRAPPER */}
+      {/* MAIN AREA */}
       <div style={{
         width: "100%",
         background: "#081120",
@@ -80,128 +84,87 @@ export default function App() {
         boxSizing: "border-box"
       }}>
 
-        {/* HERO */}
-        <div style={{
-          background: "#111827",
-          padding: "50px",
-          borderRadius: "18px",
-          maxWidth: "1400px",
-          margin: "0 auto"
-        }}>
+        {/* ================= HOME ================= */}
+        {activePage === "home" && (
+          <div style={card}>
+            <h1 style={{ fontSize: "48px" }}>
+              Academic Editing & Writing Support Services
+            </h1>
 
-          <h1 style={{
-            fontSize: "48px",
-            marginBottom: "20px",
-            lineHeight: "1.2"
-          }}>
-            Academic Editing & Writing Support Services in UK & US
-          </h1>
+            <p style={{ fontSize: "20px", opacity: 0.9 }}>
+              Professional academic editing, proofreading, writing support for essays,
+              dissertations, and research papers.
+            </p>
 
-          <p style={{
-            opacity: 0.9,
-            lineHeight: "1.8",
-            fontSize: "20px",
-            maxWidth: "900px"
-          }}>
-            Professional academic editing, proofreading, writing support for essays,
-            dissertations, and research papers. Improve clarity, structure, grammar, and academic quality with expert-level assistance.
-          </p>
-
-          <a
-            href="https://wa.me/254726434657"
-            target="_blank"
-            rel="noreferrer"
-            style={{
-              display: "inline-block",
-              marginTop: "30px",
-              padding: "18px 28px",
-              background: "#22c55e",
-              color: "black",
-              fontWeight: "bold",
-              borderRadius: "12px",
-              textDecoration: "none"
-            }}
-          >
-            Get Instant Help on WhatsApp
-          </a>
-
-        </div>
-
-        {/* ORDER FORM */}
-        <div style={{
-          background: "#172033",
-          padding: "40px",
-          borderRadius: "18px",
-          marginTop: "40px",
-          maxWidth: "1400px",
-          margin: "40px auto 0 auto"
-        }}>
-
-          <h2>Place Your Order</h2>
-
-          <input placeholder="Title of your paper/work" style={inputStyle} />
-          <input placeholder="Number of pages" type="number" style={inputStyle} />
-          <textarea placeholder="Additional instructions..." rows="5" style={inputStyle}></textarea>
-
-          <button style={{
-            marginTop: "20px",
-            padding: "16px 24px",
-            background: "#2563eb",
-            color: "white",
-            border: "none",
-            borderRadius: "10px",
-            fontWeight: "bold",
-            cursor: "pointer"
-          }}>
-            Submit Order Request
-          </button>
-
-        </div>
-
-        {/* PRICE LIST */}
-        <div style={{
-          background: "#111827",
-          padding: "40px",
-          borderRadius: "18px",
-          marginTop: "40px",
-          maxWidth: "1400px",
-          margin: "40px auto 0 auto"
-        }}>
-
-          <h2>Basic Price List</h2>
-
-          <p>✔ Basic Editing — $10–$12 per page</p>
-          <p>✔ Advanced Editing — $15–$20 per page</p>
-          <p>✔ Dissertation Support — Custom Pricing</p>
-          <p>✔ Urgent 24h Delivery — Extra Charges Apply</p>
-
-        </div>
-
-        {/* CHAT */}
-        <div style={{
-          background: "#172033",
-          padding: "40px",
-          borderRadius: "18px",
-          marginTop: "40px",
-          maxWidth: "1400px",
-          margin: "40px auto 0 auto"
-        }}>
-
-          <h2>Quick Chat</h2>
-
-          <div style={{
-            background: "#0f172a",
-            padding: "20px",
-            borderRadius: "12px",
-            minHeight: "120px",
-            marginBottom: "15px"
-          }}>
-            Hello 👋 How can we help?
+            <a
+              href="https://wa.me/254726434657"
+              target="_blank"
+              rel="noreferrer"
+              style={cta}
+            >
+              Get Instant Help on WhatsApp
+            </a>
           </div>
+        )}
 
-          <input placeholder="Type message..." style={inputStyle} />
+        {/* ================= SERVICES ================= */}
+        {activePage === "services" && (
+          <div style={card}>
+            <h2>Academic Services</h2>
 
-        </div>
+            <p>✔ Academic editing UK & US</p>
+            <p>✔ Essay proofreading</p>
+            <p>✔ Dissertation support</p>
+            <p>✔ Academic writing help</p>
+            <p>✔ APA / MLA formatting</p>
+          </div>
+        )}
+
+        {/* ================= ORDER ================= */}
+        {activePage === "order" && (
+          <div style={card}>
+            <h2>Place Your Order</h2>
+
+            <input placeholder="Title of work" style={input} />
+            <input placeholder="Number of pages" style={input} />
+            <textarea placeholder="Instructions..." rows="5" style={input} />
+
+            <button style={button}>
+              Submit Order
+            </button>
+          </div>
+        )}
+
+        {/* ================= PRICING ================= */}
+        {activePage === "pricing" && (
+          <div style={card}>
+            <h2>Pricing</h2>
+
+            <p>Basic Editing — $10–$12/page</p>
+            <p>Advanced Editing — $15–$20/page</p>
+            <p>Dissertation — Custom pricing</p>
+            <p>24h delivery — extra fee</p>
+          </div>
+        )}
+
+        {/* ================= CHAT ================= */}
+        {activePage === "chat" && (
+          <div style={card}>
+            <h2>Quick Chat</h2>
+
+            <div style={{
+              background: "#0f172a",
+              padding: "20px",
+              borderRadius: "10px",
+              minHeight: "120px",
+              marginBottom: "10px"
+            }}>
+              Hello 👋 How can we help?
+            </div>
+
+            <input placeholder="Type message..." style={input} />
+          </div>
+        )}
 
       </div>
 
@@ -230,7 +193,16 @@ export default function App() {
   );
 }
 
-const inputStyle = {
+/* STYLES */
+const card = {
+  background: "#172033",
+  padding: "40px",
+  borderRadius: "18px",
+  maxWidth: "1400px",
+  margin: "0 auto"
+};
+
+const input = {
   width: "100%",
   padding: "16px",
   marginTop: "12px",
@@ -239,4 +211,32 @@ const inputStyle = {
   background: "#0f172a",
   color: "white",
   fontSize: "16px"
+};
+
+const button = {
+  marginTop: "20px",
+  padding: "16px 24px",
+  background: "#2563eb",
+  color: "white",
+  border: "none",
+  borderRadius: "10px",
+  fontWeight: "bold",
+  cursor: "pointer"
+};
+
+const cta = {
+  display: "inline-block",
+  marginTop: "30px",
+  padding: "18px 28px",
+  background: "#22c55e",
+  color: "black",
+  fontWeight: "bold",
+  borderRadius: "12px",
+  textDecoration: "none"
+};
+
+const menuItem = {
+  color: "white",
+  cursor: "pointer",
+  textDecoration: "none"
 };
