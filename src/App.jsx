@@ -18,14 +18,16 @@ export default function App() {
         justifyContent: "space-between"
       }}>
 
-        {/* MENU BUTTON (HOME MENU) */}
-<div style={{
-  position: "relative",
-  fontSize: "32px",
-  cursor: "pointer"
-}}>
+        {/* MENU BUTTON WRAPPER */}
+<div style={{ position: "relative", display: "inline-block" }}>
 
-  ☰
+  {/* MENU ICON */}
+  <div style={{
+    fontSize: "32px",
+    cursor: "pointer"
+  }}>
+    ☰
+  </div>
 
   {/* DROPDOWN MENU */}
   <div style={{
@@ -39,7 +41,8 @@ export default function App() {
     width: "220px",
     display: "flex",
     flexDirection: "column",
-    gap: "10px"
+    gap: "10px",
+    zIndex: 999
   }}>
 
     <a href="#services" style={{ color: "white", textDecoration: "none" }}>
@@ -62,14 +65,6 @@ export default function App() {
 
 </div>
 
-        <div style={{
-          fontSize: "20px",
-          fontWeight: "bold"
-        }}>
-          Elevate Academic
-        </div>
-
-      </div>
 
       {/* MAIN BACKGROUND */}
       <div style={{
